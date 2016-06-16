@@ -1,3 +1,5 @@
+'use strict'
+
 window.onload = init;
 
 var START_HEALTH = 100;
