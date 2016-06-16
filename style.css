@@ -1,0 +1,27 @@
+body {
+    background: #333;
+    cursor: cell;
+}
+
+#gameName {
+    color: #fff;
+    font-family: "HelveticaNeue-UltraLight";
+    font-weight: bold;
+    font-size: 27px;
+    text-align: center;
+}
+
+canvas {
+    display: block;
+    margin: 0px auto 0px;
+}
+
+#player, #enemy {
+    display: block;
+    margin: -500px auto 0px;
+}
+
+#health, #score {
+    display: block;
+    margin: -530px auto 0px;
+}
