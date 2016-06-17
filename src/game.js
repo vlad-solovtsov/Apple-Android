@@ -16,16 +16,16 @@ var gameWidth = 800;
 var gameHeight = 500;
 
 var background = new Image();
-background.src = "img/bg.jpg";
+background.src = "../img/bg.jpg";
 
 var background1 = new Image();
-background1.src = "img/bg1.jpg";
+background1.src = "../img/bg1.jpg";
 
 var tiles = new Image();
-tiles.src = "img/tiles.png";
+tiles.src = "../img/tiles.png";
 
 var enemyPic = new Image();
-enemyPic.src = "img/enemy.png";
+enemyPic.src = "../img/enemy.png";
 
 var player;
 var enemies = [];
@@ -78,10 +78,8 @@ function init() {
 
     ctxHealth.fillStyle = "#FFFFFF";
     ctxHealth.font = "bold 15pt Arial";
-
     ctxScore.fillStyle = "#FFFFFF";
     ctxScore.font = "bold 15pt Arial";
-
 
     player = new Player();
     resetHealth();
@@ -224,7 +222,7 @@ Player.prototype.update = function () {
 
 Player.prototype.checkHealth = function() {
     if(this.health == 0)
-        isPlaying = false;
+        stopLoop();
 };
 
 Player.prototype.chooseDir = function () {
