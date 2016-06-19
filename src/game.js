@@ -89,17 +89,22 @@ function init() {
     document.addEventListener("keyup", checkKeyUp, false)
     document.addEventListener("mousemove", mouseMove, false)
     document.addEventListener("click", mouseClick, false)
+
+
+    var aud = new Audio();
+    aud.load();
+    aud.play();
 }
 
 function mouseMove(e) {
-    if(mouseMoving) {
+    if (mouseMoving) {
         player.drawX = e.pageX - map.offsetLeft - player.width / 2;
         player.drawY = e.pageY - map.offsetTop - player.height / 2;
     }
 }
 
 function mouseClick(e) {
-    if(mouseClicking) {
+    if (mouseClicking) {
         player.drawX = e.pageX - map.offsetLeft - player.width / 2;
         player.drawY = e.pageY - map.offsetTop - player.height / 2;
     }
@@ -166,9 +171,9 @@ function moveBg() {
     var step = 4;
     mapX -= step;
     map1X -= step;
-    if(mapX + gameWidth < 0)
+    if (mapX + gameWidth < 0)
         mapX = gameWidth - 10;
-    if(map1X + gameWidth < 0)
+    if (map1X + gameWidth < 0)
         map1X = gameWidth - 10;
 }
 
@@ -196,7 +201,7 @@ Player.prototype.draw = function () {
 };
 
 Player.prototype.update = function () {
-    if(this.health < 0) resetHealth();
+    if (this.health < 0) resetHealth();
 
     if (this.drawX < 0)
         this.drawX = 0;
@@ -208,7 +213,7 @@ Player.prototype.update = function () {
         this.drawY = gameHeight - this.height;
 
     for (var i = 0; i < enemies.length; i++) {
-        if(this.drawX >= enemies[i].drawX &&
+        if (this.drawX >= enemies[i].drawX &&
             this.drawY >= enemies[i].drawY &&
             this.drawX <= enemies[i].drawX + enemies[i].width &&
             this.drawY <= enemies[i].drawY + enemies[i].height) {
@@ -220,8 +225,8 @@ Player.prototype.update = function () {
     this.chooseDir();
 };
 
-Player.prototype.checkHealth = function() {
-    if(this.health == 0)
+Player.prototype.checkHealth = function () {
+    if (this.health == 0)
         stopLoop();
 };
 
@@ -248,7 +253,7 @@ function Enemy() {
     this.width = enemyPic.width;
     this.height = enemyPic.height;
 
-    if(this.drawY > gameHeight - this.height)
+    if (this.drawY > gameHeight - this.height)
         this.drawY = gameHeight / 2;
 
     this.speed = 8;
